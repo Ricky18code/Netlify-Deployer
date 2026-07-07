@@ -1,0 +1,12 @@
+[build]
+  base = "artifacts/ajika-jewels"
+  command = "pnpm install --frozen-lockfile=false && pnpm run build"
+  publish = "dist/public"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

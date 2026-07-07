@@ -1,0 +1,735 @@
+You are a senior frontend developer, expert UI/UX designer, and luxury brand web designer.
+
+Build a COMPLETE, POLISHED, CLIENT-READY DEMO E-COMMERCE WEBSITE for the jewellery brand described below.
+
+IMPORTANT: Build the complete website in one development pass as much as possible. Carefully plan the website structure, components, responsive behavior, design system, and functionality before writing code. Avoid unnecessary complexity and dependencies.
+
+The goal is to create a visually impressive demo website that I can show to a potential client.
+
+=============================
+BUSINESS DETAILS
+================
+
+Brand Name: Ajika Jewels
+
+Business Type: E-commerce Jewellery Store
+
+Instagram:
+https://www.instagram.com/ajika.jewels?igsh=ZnRlemRvdmgwamdz
+
+Use the business name “Ajika Jewels” throughout the website.
+
+If direct access to the Instagram profile is unavailable, do not stop development and do not create errors. Instead, create a sophisticated visual identity suitable for a modern premium jewellery e-commerce brand.
+
+=============================
+PRIMARY OBJECTIVE
+=================
+
+Create a premium, elegant, modern, highly polished jewellery e-commerce website demo.
+
+The website must look excellent on:
+
+* Desktop PCs
+* Laptops
+* Tablets
+* Mobile phones
+
+The mobile version is extremely important because many customers will visit the website from Instagram.
+
+The website should feel custom-designed for Ajika Jewels and must NOT look like a generic AI-generated website, basic template, or unfinished student project.
+
+Prioritize:
+
+1. Visual quality
+2. Mobile responsiveness
+3. User experience
+4. Smooth interactions
+5. Professional presentation
+6. Working demo functionality
+
+=============================
+TECHNICAL APPROACH
+==================
+
+Use a simple, reliable, and efficient modern frontend stack that works well in Replit.
+
+Preferred stack:
+
+* React
+* Vite
+* TypeScript
+* Tailwind CSS
+
+Use another lightweight approach only if it will significantly improve reliability.
+
+IMPORTANT:
+
+This is currently a client demo.
+
+Do NOT build unnecessary production infrastructure.
+
+Do NOT implement:
+
+* Real payment gateway
+* Real authentication
+* Production backend
+* Complex database
+* Real admin dashboard
+* Shipping APIs
+* Email infrastructure
+
+Use realistic mock data and frontend functionality instead.
+
+Keep the code clean, reusable, organized, and easy to extend into a real production website later.
+
+=============================
+DESIGN DIRECTION
+================
+
+Create a premium jewellery brand aesthetic.
+
+The visual style should feel:
+
+* Luxurious
+* Elegant
+* Feminine but sophisticated
+* Modern
+* Clean
+* Premium
+* Trustworthy
+* Warm
+* Minimal
+
+Avoid:
+
+* Generic templates
+* Excessive gradients
+* Bright random colors
+* Excessive rounded cards
+* Overuse of glassmorphism
+* Cluttered layouts
+* Cheap-looking gold effects
+* Excessive animations
+* AI-generated-looking layouts
+
+Use generous whitespace and excellent visual hierarchy.
+
+=============================
+COLOR PALETTE
+=============
+
+Create a cohesive luxury color palette.
+
+Suggested direction:
+
+Primary Background:
+Warm Ivory / Off White
+
+Secondary Background:
+Soft Cream / Warm Beige
+
+Primary Text:
+Deep Charcoal
+
+Secondary Text:
+Muted Warm Gray
+
+Luxury Accent:
+Champagne Gold / Muted Antique Gold
+
+Optional Accent:
+Very subtle Dusty Rose
+
+Use gold sparingly and elegantly.
+
+Ensure proper text contrast and accessibility.
+
+Create the color palette as reusable design tokens or CSS variables so it can easily be modified later.
+
+=============================
+TYPOGRAPHY
+==========
+
+Use a premium font combination.
+
+For headings, consider:
+
+* Cormorant Garamond
+* Playfair Display
+
+For body text and interface elements, consider:
+
+* Inter
+* Manrope
+
+Choose ONE elegant heading font and ONE clean body font.
+
+Create a clear typography hierarchy.
+
+Headings should feel editorial and luxurious.
+
+Body text must remain highly readable, especially on mobile devices.
+
+=============================
+WEBSITE STRUCTURE
+=================
+
+Build the following pages or routes:
+
+1. Home
+2. Shop
+3. Product Details
+4. About Us
+5. Contact
+6. Shopping Cart
+7. Mock Checkout
+8. 404 Page
+
+Create working navigation between all pages.
+
+=============================
+HEADER AND NAVIGATION
+=====================
+
+Create an elegant responsive header.
+
+Desktop navigation:
+
+* Ajika Jewels logo/brand name
+* Home
+* Shop
+* About
+* Contact
+* Search icon
+* Wishlist icon
+* Shopping cart icon
+
+Mobile navigation:
+
+* Brand logo/name
+* Hamburger menu
+* Shopping cart
+* Elegant slide-out or dropdown mobile menu
+
+The mobile navigation must work correctly.
+
+Make the header sticky or intelligently fixed if it improves the design.
+
+Add subtle scroll behavior if appropriate.
+
+=============================
+HOME PAGE
+=========
+
+Create a visually stunning homepage.
+
+Include:
+
+1. ANNOUNCEMENT BAR
+
+Example:
+
+“Complimentary Shipping on Selected Orders”
+
+Keep it subtle and premium.
+
+2. HERO SECTION
+
+Create an impressive luxury hero section.
+
+Include:
+
+* Beautiful jewellery imagery
+* Strong luxury headline
+* Short brand message
+* “Shop Collection” CTA
+* Secondary “Explore New Arrivals” CTA
+
+The hero must look excellent on both desktop and mobile.
+
+3. FEATURED CATEGORIES
+
+Create categories such as:
+
+* Earrings
+* Necklaces
+* Rings
+* Bracelets
+
+Use elegant imagery and hover effects.
+
+4. NEW ARRIVALS
+
+Show realistic jewellery products.
+
+5. BEST SELLERS
+
+Create another premium product section.
+
+6. BRAND STORY
+
+Introduce Ajika Jewels with professionally written copy.
+
+Do not use Lorem Ipsum.
+
+7. WHY CHOOSE AJIKA JEWELS
+
+Create 3–4 elegant benefits such as:
+
+* Thoughtfully Curated Designs
+* Quality Craftsmanship
+* Secure Shopping
+* Customer Support
+
+8. FEATURED COLLECTION BANNER
+
+Create a visually strong promotional section.
+
+9. TESTIMONIALS
+
+Create realistic sample testimonials.
+
+Clearly structure the code so testimonials can easily be replaced later.
+
+10. INSTAGRAM SECTION
+
+Create an elegant section titled:
+
+“Follow Our Journey”
+
+Include:
+
+@ajika.jewels
+
+Add a button linking to:
+
+https://www.instagram.com/ajika.jewels?igsh=ZnRlemRvdmgwamdz
+
+Open the Instagram link in a new tab.
+
+Create a beautiful mock Instagram image grid using placeholder jewellery images.
+
+11. NEWSLETTER
+
+Create an elegant newsletter signup UI.
+
+For the demo, display a success message after submitting.
+
+12. FOOTER
+
+Include:
+
+* Ajika Jewels branding
+* Navigation
+* Shop links
+* Customer service links
+* Contact section
+* Instagram link
+* Newsletter
+* Copyright
+
+=============================
+SHOP PAGE
+=========
+
+Create a professional jewellery shopping experience.
+
+Include:
+
+* Page heading
+* Product count
+* Search
+* Category filters
+* Price filtering UI
+* Sorting
+
+Sorting options:
+
+* Featured
+* Newest
+* Price: Low to High
+* Price: High to Low
+
+Create a responsive product grid.
+
+Desktop:
+3–4 products per row depending on available width.
+
+Tablet:
+2–3 products.
+
+Mobile:
+2 products per row where practical, or 1 per row if necessary for visual quality.
+
+=============================
+PRODUCT DATA
+============
+
+Create approximately 12–16 realistic demo jewellery products.
+
+Include products across:
+
+* Earrings
+* Necklaces
+* Rings
+* Bracelets
+
+Each product should contain:
+
+* Product name
+* Category
+* Price in Indian Rupees (₹)
+* Original price where appropriate
+* Discount where appropriate
+* Product image
+* Additional image if practical
+* Short description
+* Detailed description
+* Material
+* Care instructions
+* Stock status
+
+Use realistic, elegant jewellery product names.
+
+Do not use names such as:
+
+“Product 1”
+“Jewellery Item”
+“Sample Necklace”
+
+=============================
+PRODUCT CARDS
+=============
+
+Create premium product cards.
+
+Include:
+
+* Product image
+* Product name
+* Price
+* Original price where applicable
+* Discount badge where applicable
+* Wishlist button
+* Add to Cart button or Quick Add
+* Subtle image zoom on hover
+
+Clicking a product should open its Product Details page.
+
+=============================
+PRODUCT DETAILS PAGE
+====================
+
+Create a polished product details experience.
+
+Include:
+
+* Large product image
+* Additional thumbnails
+* Product name
+* Price
+* Original price if discounted
+* Description
+* Material
+* Care information
+* Stock status
+* Quantity selector
+* Add to Cart
+* Buy Now
+* Wishlist
+* Shipping information
+* Related products
+
+Ensure excellent mobile layout.
+
+=============================
+SHOPPING CART
+=============
+
+Implement a FUNCTIONAL frontend shopping cart.
+
+Users must be able to:
+
+* Add products
+* Remove products
+* Increase quantity
+* Decrease quantity
+* View subtotal
+* View total number of cart items
+
+Persist the cart using localStorage so it remains after refreshing the page.
+
+Create:
+
+* Empty cart state
+* Filled cart state
+
+The header cart icon should display the current number of products.
+
+=============================
+WISHLIST
+========
+
+Implement basic frontend wishlist functionality.
+
+Users should be able to:
+
+* Add products to wishlist
+* Remove products from wishlist
+
+Persist wishlist using localStorage.
+
+=============================
+MOCK CHECKOUT
+=============
+
+Create a beautiful demo checkout page.
+
+Include:
+
+* Customer name
+* Email
+* Phone
+* Shipping address
+* City
+* State
+* PIN code
+* Order summary
+* Subtotal
+* Shipping
+* Total
+
+Add basic frontend form validation.
+
+IMPORTANT:
+
+Do NOT integrate real payments.
+
+Clearly use a demo payment interface.
+
+When the user completes checkout, show a professional demo order success page or confirmation message.
+
+=============================
+ABOUT PAGE
+==========
+
+Create a premium About Ajika Jewels page.
+
+Write professional sample brand storytelling.
+
+Make the text easy to replace later when real information is received from the client.
+
+Include:
+
+* Brand introduction
+* Philosophy
+* Craftsmanship
+* Customer promise
+
+=============================
+CONTACT PAGE
+============
+
+Create:
+
+* Contact form
+* Name
+* Email
+* Phone
+* Message
+
+Add frontend validation.
+
+Show a success message after demo submission.
+
+Include a prominent Instagram contact button.
+
+Instagram:
+
+https://www.instagram.com/ajika.jewels?igsh=ZnRlemRvdmgwamdz
+
+=============================
+IMAGES
+======
+
+Use high-quality jewellery placeholder images suitable for a luxury website demo.
+
+Ensure:
+
+* Images load correctly
+* Images have consistent aspect ratios
+* Images are optimized
+* Images are responsive
+* Images include alt text
+* Broken image states are avoided
+
+Keep all product data centralized so the images can easily be replaced later with actual Ajika Jewels product images.
+
+=============================
+ANIMATIONS AND INTERACTIONS
+===========================
+
+Use subtle, premium animations.
+
+Include where appropriate:
+
+* Fade-in on scroll
+* Gentle slide-up animations
+* Product image zoom
+* Elegant button hover states
+* Navigation transitions
+* Mobile menu animations
+* Cart feedback
+* Wishlist feedback
+* Smooth scrolling
+* Section reveal animations
+
+Animations must be:
+
+* Smooth
+* Subtle
+* Fast
+* Professional
+
+Do NOT over-animate the website.
+
+Respect prefers-reduced-motion accessibility settings.
+
+=============================
+MOBILE EXPERIENCE
+=================
+
+Mobile responsiveness is a TOP PRIORITY.
+
+Test and optimize:
+
+* Navigation
+* Hero section
+* Product grids
+* Product pages
+* Cart
+* Checkout
+* Forms
+* Buttons
+* Images
+* Typography
+* Footer
+
+Ensure there is:
+
+* No horizontal overflow
+* No overlapping text
+* No cut-off buttons
+* No tiny tap targets
+* No broken grids
+
+The website should look intentionally designed for mobile, not merely shrunk from the desktop version.
+
+=============================
+SEO AND ACCESSIBILITY
+=====================
+
+Use:
+
+* Semantic HTML
+* Proper heading hierarchy
+* Descriptive page titles
+* Meta descriptions
+* Image alt text
+* Accessible buttons
+* Form labels
+* Keyboard navigation
+* Visible focus states
+* Good color contrast
+
+=============================
+CODE QUALITY
+============
+
+Create:
+
+* Reusable components
+* Clean folder structure
+* Centralized mock product data
+* Maintainable code
+* Clear component names
+* Minimal unnecessary dependencies
+
+Avoid:
+
+* Duplicate code
+* Giant components
+* Unnecessary complexity
+* Excessive dependencies
+* Console errors
+* Broken links
+* Dead code
+
+=============================
+IMPORTANT DEVELOPMENT INSTRUCTIONS
+==================================
+
+Before writing code:
+
+1. Plan the project structure.
+2. Plan the reusable components.
+3. Plan the design system.
+4. Plan the responsive layouts.
+5. Plan the product data structure.
+6. Plan the cart and wishlist state management.
+
+Then implement the website systematically.
+
+Do not stop after creating only the homepage.
+
+Complete all requested demo pages and functionality.
+
+Do not repeatedly ask me for minor design decisions.
+
+Use your professional judgment to make reasonable decisions.
+
+If a requested feature causes unnecessary technical complexity for a client demo, implement the simplest polished frontend version.
+
+After implementation:
+
+1. Run the project.
+2. Check for build errors.
+3. Fix TypeScript errors.
+4. Fix console errors.
+5. Test all navigation links.
+6. Test Add to Cart.
+7. Test cart quantity controls.
+8. Test Remove from Cart.
+9. Test Wishlist.
+10. Test Shop filters and sorting.
+11. Test the mock checkout form.
+12. Test mobile navigation.
+13. Check desktop responsiveness.
+14. Check tablet responsiveness.
+15. Check mobile responsiveness.
+16. Fix horizontal overflow.
+17. Fix broken images.
+18. Fix visual inconsistencies.
+
+Do not consider the project complete until the website runs correctly.
+
+=============================
+FINAL RESULT
+============
+
+The final result should be a beautiful, polished, responsive luxury jewellery e-commerce website demo created specifically for Ajika Jewels.
+
+The website must:
+
+* Impress a potential client
+* Feel custom-designed
+* Work on desktop and mobile
+* Have functional frontend shopping interactions
+* Be easy to extend later
+* Be easy to replace with real products and content
+* Avoid unnecessary backend complexity
+* Look significantly better than a generic AI-generated template
+
+Prioritize quality over quantity.
+
+Build the complete demo now.

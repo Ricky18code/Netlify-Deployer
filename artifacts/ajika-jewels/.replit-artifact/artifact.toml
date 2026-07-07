@@ -1,0 +1,27 @@
+kind = "web"
+previewPath = "/"
+title = "Ajika Jewels"
+version = "1.0.0"
+id = "artifacts/ajika-jewels"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 20671
+
+[services.development]
+run = "pnpm --filter @workspace/ajika-jewels run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/ajika-jewels", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/ajika-jewels/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "20671"
+BASE_PATH = "/"
