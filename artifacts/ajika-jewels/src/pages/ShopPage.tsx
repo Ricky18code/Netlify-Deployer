@@ -110,7 +110,7 @@ export function ShopPage() {
     <div className="container mx-auto px-4 md:px-6 py-12 md:py-20 min-h-screen">
       <div className="mb-12">
         {searchParams.has('search') && (
-          <div className="mb-8">
+          <div className="mb-8 relative max-w-xl">
             <input
               type="text"
               value={searchQuery}
@@ -119,8 +119,18 @@ export function ShopPage() {
               }
               placeholder="Search jewelry..."
               autoFocus
-              className="w-full max-w-xl border border-border bg-transparent px-4 py-3 text-foreground focus:outline-none focus:border-primary"
+              className="w-full border border-border bg-transparent px-4 py-3 pr-12 text-foreground focus:outline-none focus:border-primary"
             />
+
+            {searchQuery && (
+              <button
+                onClick={() => setLocation('/shop?search=')}
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+                aria-label="Clear search"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            )}
           </div>
         )}
         <h1 className="font-serif text-4xl md:text-5xl text-foreground mb-4 capitalize">
