@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useRoute, Link } from 'wouter';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Heart, Truck, RotateCcw, ShieldCheck, ChevronRight } from 'lucide-react';
-import { products } from '../data/products';
+import { supabase } from '../lib/supabase';
 import { useCart } from '../context/CartContext';
 import { useWishlist } from '../context/WishlistContext';
 import { ProductGrid } from '../components/product/ProductGrid';
@@ -11,13 +11,56 @@ export function ProductPage() {
   const [, params] = useRoute('/product/:id');
   const productId = params?.id;
   
-  const product = products.find(p => p.id === productId);
+  const [product, setProduct] = useState<any>(null);
+  const [loading, setLoading] = useState(true); 
   const [mainImage, setMainImage] = useState(product?.images[0] || '');
   const [quantity, setQuantity] = useState(1);
   const [activeTab, setActiveTab] = useState<'desc' | 'details'>('desc');
   
   const { addToCart } = useCart();
   const { toggleWishlist, isWishlisted } = useWishlist();
+  useEffect(() => {
+    async function fetchProduct() {
+      if (!productId) return;
+
+      setLoading(true);
+
+      const { data, error } = await supabase
+        .from('products')
+        .select(`
+          *,
+          categories (
+            slug
+          )
+        `)
+        .eq('id', productId)
+        .single();
+
+      if (error) {
+        console.error('Supabase product error:', error);
+        setProduct(null);
+        setLoading(false);
+        return;
+      }
+
+      const formattedProduct = {
+        ...data,
+        category: data.categories?.slug,
+        originalPrice: data.sale_price,
+        isNew: data.is_new_arrival,
+        isFeatured: data.is_featured,
+        isBestseller: data.is_best_seller,
+        inStock: data.stock > 0,
+        images: data.image_url ? [data.image_url] : [],
+        shortDescription: data.description,
+      };
+
+      setProduct(formattedProduct);
+      setLoading(false);
+    }
+
+    fetchProduct();
+  }, [productId]);
 
   // Reset state when product changes
   useEffect(() => {
@@ -27,6 +70,14 @@ export function ProductPage() {
       window.scrollTo(0, 0);
     }
   }, [product]);
+
+  if (loading) {
+    return (
+      <div className="min-h-[60vh] flex items-center justify-center">
+      <p className="text-muted-foreground">Loading product...</p>
+      </div>
+    );
+  }
 
   if (!product) {
     return (
@@ -41,9 +92,7 @@ export function ProductPage() {
   const formattedPrice = new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(product.price);
   const formattedOriginalPrice = product.originalPrice ? new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(product.originalPrice) : null;
 
-  const relatedProducts = products
-    .filter(p => p.category === product.category && p.id !== product.id)
-    .slice(0, 4);
+  const relatedProducts: any[] = [];
 
   return (
     <div className="container mx-auto px-4 md:px-6 py-8 md:py-12">
@@ -61,7 +110,7 @@ export function ProductPage() {
         <div className="flex flex-col-reverse md:flex-row gap-4">
           {/* Thumbnails */}
           <div className="flex md:flex-col gap-4 overflow-x-auto md:w-24 shrink-0 no-scrollbar">
-            {product.images.map((img, idx) => (
+            {product.images.map((img: string, idx: number) => (
               <button
                 key={idx}
                 onClick={() => setMainImage(img)}
