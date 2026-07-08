@@ -1,6 +1,6 @@
 import { supabase } from '../lib/supabase';
 import React, { useState, useEffect } from 'react';
-import { useSearch } from 'wouter';
+import { useSearch, useLocation } from 'wouter';
 import { motion } from 'framer-motion';
 import { Filter, X, ChevronDown } from 'lucide-react';
 import { ProductGrid } from '../components/product/ProductGrid';
@@ -45,23 +45,19 @@ export function ShopPage() {
     fetchProducts();
   }, []);
   const search = useSearch();
+  const [, setLocation] = useLocation();
   const searchParams = new URLSearchParams(search);
-  const initialCategory = (searchParams.get('category') as Category) || 'all';
+  const validCategories: Category[] = ['all', 'earrings', 'necklaces', 'rings', 'bracelets', 'new'];
+  const queryCategory = searchParams.get('category') as Category;
 
-  const [category, setCategory] = useState<Category>(initialCategory);
+  const category: Category = validCategories.includes(queryCategory)
+    ? queryCategory
+    : 'all';
   const [sortBy, setSortBy] = useState<SortOption>('featured');
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [priceRange, setPriceRange] = useState<[number, number]>([0, 20000]);
   const [showBestsellers, setShowBestsellers] = useState(false);
 
-  const validCategories: Category[] = ['all', 'earrings', 'necklaces', 'rings', 'bracelets', 'new'];
-
-  // Sync state when URL search params change (e.g. clicking nav links)
-  useEffect(() => {
-    const params = new URLSearchParams(search);
-    const queryCategory = params.get('category') as Category;
-    setCategory(validCategories.includes(queryCategory) ? queryCategory : 'all');
-  }, [search]);
 
   // Filter products
   const filteredProducts = products.filter(p => {
@@ -157,7 +153,11 @@ export function ShopPage() {
                     <li key={cat.id}>
                       <button
                         onClick={() => {
-                          setCategory(cat.id as Category);
+                          setLocation(
+                            cat.id === 'all'
+                              ? '/shop'
+                              : `/shop?category=${cat.id}`
+                          );
                           setIsFilterOpen(false);
                         }}
                         className={`text-sm transition-colors ${
