@@ -21,6 +21,7 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 export function CartProvider({ children }: { children: React.ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([]);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [showCartToast, setShowCartToast] = useState(false);
 
   useEffect(() => {
     const saved = localStorage.getItem('ajika_cart');
@@ -52,6 +53,11 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       }
       return [...prev, { product, quantity }];
     });
+    setShowCartToast(true);
+
+    setTimeout(() => {
+      setShowCartToast(false);
+    }, 2500);
   };
 
   const removeFromCart = (productId: string) => {
@@ -78,6 +84,18 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   return (
     <CartContext.Provider value={{ items, totalItems, totalPrice, addToCart, removeFromCart, updateQuantity, clearCart }}>
       {children}
+
+      {showCartToast && (
+        <div className="fixed top-6 right-6 z-[9999] flex items-center gap-3 bg-green-600 text-white px-5 py-3 shadow-lg">
+          <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white text-green-600 font-bold">
+            ✓
+          </span>
+
+          <span className="text-sm font-medium">
+            Added to cart
+          </span>
+        </div>
+      )}
     </CartContext.Provider>
   );
 }
