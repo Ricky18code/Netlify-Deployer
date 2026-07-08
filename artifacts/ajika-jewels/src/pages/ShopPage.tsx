@@ -1,14 +1,43 @@
+import { supabase } from '../lib/supabase';
 import React, { useState, useEffect } from 'react';
 import { useSearch } from 'wouter';
 import { motion } from 'framer-motion';
 import { Filter, X, ChevronDown } from 'lucide-react';
-import { products } from '../data/products';
 import { ProductGrid } from '../components/product/ProductGrid';
 
 type SortOption = 'featured' | 'newest' | 'price-asc' | 'price-desc';
 type Category = 'all' | 'earrings' | 'necklaces' | 'rings' | 'bracelets' | 'new';
 
 export function ShopPage() {
+  const [products, setProducts] = useState<any[]>([]);
+  useEffect(() => {
+    async function fetchProducts() {
+      const { data, error } = await supabase
+        .from('products')
+        .select('*');
+
+      if (error) {
+        console.error('Supabase error:', error);
+        return;
+      }
+
+      console.log('Products fetched from Supabase:', data);
+
+      const formattedProducts = (data || []).map((product) => ({
+        ...product,
+        originalPrice: product.original_price,
+        isNew: product.is_new,
+        isFeatured: product.is_featured,
+        isBestseller: product.is_best_seller,
+        inStock: product.in_stock,
+        images: product.image_url ? [product.image_url] : [],
+      }));
+
+      setProducts(formattedProducts);
+    }
+
+    fetchProducts();
+  }, []);
   const search = useSearch();
   const searchParams = new URLSearchParams(search);
   const initialCategory = (searchParams.get('category') as Category) || 'all';
