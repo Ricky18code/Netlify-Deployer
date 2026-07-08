@@ -32,10 +32,10 @@ export function ShopPage() {
         ...product,
         category: product.categories?.slug,
         originalPrice: product.original_price,
-        isNew: product.is_new,
+        isNew: product.is_new_arrival,
         isFeatured: product.is_featured,
         isBestseller: product.is_best_seller,
-        inStock: product.in_stock,
+        inStock: product.stock > 0,
         images: product.image_url ? [product.image_url] : [],
       }));
 
