@@ -14,7 +14,12 @@ export function ShopPage() {
     async function fetchProducts() {
       const { data, error } = await supabase
         .from('products')
-        .select('*');
+        .select(`
+          *,
+          categories (
+            slug
+          )
+        `);
 
       if (error) {
         console.error('Supabase error:', error);
@@ -25,6 +30,7 @@ export function ShopPage() {
 
       const formattedProducts = (data || []).map((product) => ({
         ...product,
+        category: product.categories?.slug,
         originalPrice: product.original_price,
         isNew: product.is_new,
         isFeatured: product.is_featured,
