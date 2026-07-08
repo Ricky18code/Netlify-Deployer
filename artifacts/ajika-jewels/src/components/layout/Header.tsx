@@ -75,7 +75,7 @@ export function Header() {
             <button className="hidden md:block p-1 text-foreground hover:text-primary transition-colors" aria-label="Search">
               <Search className="w-5 h-5" />
             </button>
-            <Link href="/shop" className="hidden md:block p-1 text-foreground hover:text-primary transition-colors" aria-label="Wishlist">
+            <Link href="/wishlist" className="hidden md:block p-1 text-foreground hover:text-primary transition-colors" aria-label="Wishlist">
               <Heart className="w-5 h-5" />
             </Link>
             <Link href="/cart" className="p-1 text-foreground hover:text-primary transition-colors relative" aria-label="Cart">

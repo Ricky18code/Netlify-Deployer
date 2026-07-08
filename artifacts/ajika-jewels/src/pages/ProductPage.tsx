@@ -46,7 +46,8 @@ export function ProductPage() {
       const formattedProduct = {
         ...data,
         category: data.categories?.slug,
-        originalPrice: data.sale_price,
+        price: data.sale_price ?? data.price,
+        originalPrice: data.sale_price ? data.price : null,
         isNew: data.is_new_arrival,
         isFeatured: data.is_featured,
         isBestseller: data.is_best_seller,

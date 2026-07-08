@@ -3,7 +3,7 @@ import { Toaster } from '@/components/ui/toaster';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { Route, Switch, Router as WouterRouter, useLocation } from 'wouter';
 import { AnimatePresence, motion } from 'framer-motion';
-
+import { WishlistPage } from './pages/WishlistPage';
 import { CartProvider } from './context/CartContext';
 import { WishlistProvider } from './context/WishlistContext';
 
@@ -61,6 +61,9 @@ function Router() {
           </Route>
           <Route path="/cart">
             <PageWrapper><CartPage /></PageWrapper>
+          </Route>
+          <Route path="/wishlist">
+            <PageWrapper><WishlistPage /></PageWrapper>
           </Route>
           <Route path="/checkout">
             <PageWrapper><CheckoutPage /></PageWrapper>

@@ -31,7 +31,8 @@ export function ShopPage() {
       const formattedProducts = (data || []).map((product) => ({
         ...product,
         category: product.categories?.slug,
-        originalPrice: product.original_price,
+        price: product.sale_price ?? product.price,
+        originalPrice: product.sale_price ? product.price : null,
         isNew: product.is_new_arrival,
         isFeatured: product.is_featured,
         isBestseller: product.is_best_seller,
