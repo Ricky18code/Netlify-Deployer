@@ -72,9 +72,13 @@ export function Header() {
 
           {/* Icons */}
           <div className="flex items-center space-x-4 md:space-x-6">
-            <button className="hidden md:block p-1 text-foreground hover:text-primary transition-colors" aria-label="Search">
+            <Link
+              href="/shop?search="
+              className="hidden md:block p-1 text-foreground hover:text-primary transition-colors"
+              aria-label="Search"
+            >
               <Search className="w-5 h-5" />
-            </button>
+            </Link>
             <Link href="/wishlist" className="hidden md:block p-1 text-foreground hover:text-primary transition-colors" aria-label="Wishlist">
               <Heart className="w-5 h-5" />
             </Link>

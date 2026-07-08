@@ -48,6 +48,7 @@ export function ShopPage() {
   const search = useSearch();
   const [, setLocation] = useLocation();
   const searchParams = new URLSearchParams(search);
+  const searchQuery = searchParams.get('search') || '';
   const validCategories: Category[] = ['all', 'earrings', 'necklaces', 'rings', 'bracelets', 'new'];
   const queryCategory = searchParams.get('category') as Category;
 
@@ -62,6 +63,12 @@ export function ShopPage() {
 
   // Filter products
   const filteredProducts = products.filter(p => {
+    if (
+      searchQuery &&
+      !p.name.toLowerCase().includes(searchQuery.toLowerCase())
+    ) {
+      return false;
+    }
     if (category === 'new') {
       if (!p.isNew) return false;
     } else if (category !== 'all' && p.category !== category) {
@@ -102,6 +109,20 @@ export function ShopPage() {
   return (
     <div className="container mx-auto px-4 md:px-6 py-12 md:py-20 min-h-screen">
       <div className="mb-12">
+        {searchParams.has('search') && (
+          <div className="mb-8">
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) =>
+                setLocation(`/shop?search=${encodeURIComponent(e.target.value)}`)
+              }
+              placeholder="Search jewelry..."
+              autoFocus
+              className="w-full max-w-xl border border-border bg-transparent px-4 py-3 text-foreground focus:outline-none focus:border-primary"
+            />
+          </div>
+        )}
         <h1 className="font-serif text-4xl md:text-5xl text-foreground mb-4 capitalize">
           {categories.find(c => c.id === category)?.label || 'Shop Collection'}
         </h1>
