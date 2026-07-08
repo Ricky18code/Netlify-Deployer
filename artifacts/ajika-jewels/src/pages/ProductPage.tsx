@@ -13,6 +13,7 @@ export function ProductPage() {
   
   const [product, setProduct] = useState<any>(null);
   const [loading, setLoading] = useState(true); 
+  const [relatedProducts, setRelatedProducts] = useState<any[]>([]);
   const [mainImage, setMainImage] = useState(product?.images[0] || '');
   const [quantity, setQuantity] = useState(1);
   const [activeTab, setActiveTab] = useState<'desc' | 'details'>('desc');
@@ -57,6 +58,35 @@ export function ProductPage() {
       };
 
       setProduct(formattedProduct);
+      const { data: relatedData, error: relatedError } = await supabase
+        .from('products')
+        .select(`
+          *,
+          categories (
+            slug
+          )
+        `)
+        .eq('category_id', data.category_id)
+        .neq('id', data.id)
+        .limit(4);
+
+      if (relatedError) {
+        console.error('Supabase related products error:', relatedError);
+      } else {
+        const formattedRelatedProducts = (relatedData || []).map((relatedProduct) => ({
+          ...relatedProduct,
+          category: relatedProduct.categories?.slug,
+          price: relatedProduct.sale_price ?? relatedProduct.price,
+          originalPrice: relatedProduct.sale_price ? relatedProduct.price : null,
+          isNew: relatedProduct.is_new_arrival,
+          isFeatured: relatedProduct.is_featured,
+          isBestseller: relatedProduct.is_best_seller,
+          inStock: relatedProduct.stock > 0,
+          images: relatedProduct.image_url ? [relatedProduct.image_url] : [],
+        }));
+
+        setRelatedProducts(formattedRelatedProducts);
+      }      
       setLoading(false);
     }
 
@@ -92,8 +122,6 @@ export function ProductPage() {
   const wishlisted = isWishlisted(product.id);
   const formattedPrice = new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(product.price);
   const formattedOriginalPrice = product.originalPrice ? new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(product.originalPrice) : null;
-
-  const relatedProducts: any[] = [];
 
   return (
     <div className="container mx-auto px-4 md:px-6 py-8 md:py-12">
